@@ -7,6 +7,11 @@ Feature: DummyAPI User Management
     Then the API response status should be 200
     And the response should contain the user ID
 
+  Scenario: Get user by ID that does not exist
+    Given I have a non-existing user ID
+    When I request the user by ID
+    Then the API response status should be 404
+
   Scenario: Create, update, and delete a user
     Given I prepare a new user
     When I create the user
