@@ -33,8 +33,11 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x gradlew
 
-      - name: Run Web and API tests
-        run: xvfb-run -a ./gradlew clean test
+      - name: Run API automation tests
+        run: ./gradlew clean apiTest
+
+      - name: Run Web UI automation tests
+        run: xvfb-run -a ./gradlew webTest
 
       - name: Upload Cucumber reports
         if: always()

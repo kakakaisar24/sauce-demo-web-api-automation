@@ -6,12 +6,12 @@ import io.cucumber.java.Before;
 
 public class CucumberHooks extends BaseTest {
 
-    @Before
+    @Before("@web")
     public void beforeScenario() {
         setUpDriver();
     }
 
-    @After
+    @After("@web")
     public void afterScenario() {
         tearDownDriver();
     }
